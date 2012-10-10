@@ -1,0 +1,26 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+    <link href="../../../concordion.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1> BDD Tools Showcase</h1>
+<div class="example">
+
+    <h3>Given:  </h3>
+    <p>GitHub</p>
+
+    <h3>When: </h3>
+    <p>Searching for <em concordion:execute ="searchForUser(#TEXT)">mcgray</em></p>
+
+    <h3>Then:</h3>
+    <p> <em concordion:assertTrue = "userFound(#TEXT)">mcgray</em> exists as a user</p>
+
+    <h3>When: </h3>
+    <p>Inspecting  <em concordion:execute = "proceedToProfile()">mcgray</em> profile page</p>
+
+    <h3>Then:</h3>
+    <p> <em concordion:assertTrue = "repoPresentOnProfilePage(#TEXT)">bdd-tools</em> exists as a repo</p>
+
+</div>
+</body>
+</html>
