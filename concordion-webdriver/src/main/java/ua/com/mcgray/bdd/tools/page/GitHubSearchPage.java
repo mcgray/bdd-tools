@@ -1,6 +1,5 @@
 package ua.com.mcgray.bdd.tools.page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +12,9 @@ import org.openqa.selenium.support.FindBy;
  * Time: 16:28
  * To change this template use File | Settings | File Templates.
  */
-public class GitHubIndexPage extends Page {
+public class GitHubSearchPage extends Page {
 
-    public static final String URL = "http://github.com";
+    public static final String URL = "http://github.com/search";
 
     @FindBy(name = "q")
     private WebElement searchField;
@@ -25,7 +24,7 @@ public class GitHubIndexPage extends Page {
         return URL;
     }
 
-    public GitHubIndexPage(WebDriver webDriver) {
+    public GitHubSearchPage(WebDriver webDriver) {
         super(webDriver);
     }
 

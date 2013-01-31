@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class Page {
 
+    public static final long TIME_OUT_IN_SECONDS = 10l;
     protected WebDriver webDriver;
 
     public WebDriver getWebDriver() {

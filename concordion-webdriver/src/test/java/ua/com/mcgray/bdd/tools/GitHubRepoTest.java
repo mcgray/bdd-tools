@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import ua.com.mcgray.bdd.tools.page.GitHubIndexPage;
+import ua.com.mcgray.bdd.tools.page.GitHubSearchPage;
 import ua.com.mcgray.bdd.tools.page.GitHubProfilePage;
 import ua.com.mcgray.bdd.tools.page.GitHubSearchResultPage;
 
@@ -23,14 +23,14 @@ public class GitHubRepoTest {
 
     private WebDriver webDriver;
 
-    private GitHubIndexPage gitHubIndexPage;
+    private GitHubSearchPage gitHubIndexPage;
     private GitHubSearchResultPage gitHubSearchResultPage;
     private GitHubProfilePage gitHubProfilePage;
 
     @Before
     public void setUp() {
         webDriver = new ChromeDriver();
-        gitHubIndexPage = PageFactory.initElements(webDriver, GitHubIndexPage.class);
+        gitHubIndexPage = PageFactory.initElements(webDriver, GitHubSearchPage.class);
         gitHubSearchResultPage = PageFactory.initElements(webDriver,GitHubSearchResultPage.class);
         gitHubProfilePage = PageFactory.initElements(webDriver, GitHubProfilePage.class);
         gitHubIndexPage.open();

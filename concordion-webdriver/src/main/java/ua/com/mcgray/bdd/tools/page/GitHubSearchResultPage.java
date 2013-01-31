@@ -1,9 +1,11 @@
 package ua.com.mcgray.bdd.tools.page;
 
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,14 +16,19 @@ import org.openqa.selenium.support.FindBy;
  */
 public class GitHubSearchResultPage extends Page {
 
-    @FindBy(xpath = "//div[@id='code_search_results']/table/tbody/tr/td[2]/div[@class='result']/h2[@class='title']/a")
     private WebElement searchResults;
+
+    @FindBy(xpath = "//ul[@class='menu']/li/a[text()=' Users']")
+//    @FindBy(css = "div.menu-container a:contains(' Users')")
+    private WebElement usersSearch;
 
     public GitHubSearchResultPage(WebDriver webDriver) {
         super(webDriver);
     }
 
     public String usersFound() {
+        usersSearch.click();
+        searchResults = new WebDriverWait(getWebDriver(), TIME_OUT_IN_SECONDS).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[@class='members-list']/li[1]/h4/a")));
         return searchResults.getText();
     }
 
