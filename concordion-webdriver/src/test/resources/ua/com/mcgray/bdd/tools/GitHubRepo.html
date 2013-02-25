@@ -21,6 +21,12 @@
     <h3>Then:</h3>
     <p> <em concordion:assertTrue = "repoPresentOnProfilePage(#TEXT)">bdd-tools</em> exists as a repo</p>
 
+    <h3>When: </h3>
+    <p concordion:execute = "brosweToTest()">Browsing to Test</p>
+
+    <h3>Then:</h3>
+    <p> <em concordion:assertTrue = "searchFor(#TEXT)">hidden treasure</em> is found</p>
+
 </div>
 </body>
 </html>

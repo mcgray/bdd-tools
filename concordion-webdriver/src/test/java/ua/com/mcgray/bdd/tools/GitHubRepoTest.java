@@ -7,8 +7,9 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import ua.com.mcgray.bdd.tools.page.GitHubSearchPage;
 import ua.com.mcgray.bdd.tools.page.GitHubProfilePage;
+import ua.com.mcgray.bdd.tools.page.GitHubRepositoryPage;
+import ua.com.mcgray.bdd.tools.page.GitHubSearchPage;
 import ua.com.mcgray.bdd.tools.page.GitHubSearchResultPage;
 
 /**
@@ -26,6 +27,7 @@ public class GitHubRepoTest {
     private GitHubSearchPage gitHubIndexPage;
     private GitHubSearchResultPage gitHubSearchResultPage;
     private GitHubProfilePage gitHubProfilePage;
+    private GitHubRepositoryPage gitHubRepositoryPage;
 
     @Before
     public void setUp() {
@@ -33,8 +35,8 @@ public class GitHubRepoTest {
         gitHubIndexPage = PageFactory.initElements(webDriver, GitHubSearchPage.class);
         gitHubSearchResultPage = PageFactory.initElements(webDriver,GitHubSearchResultPage.class);
         gitHubProfilePage = PageFactory.initElements(webDriver, GitHubProfilePage.class);
+        gitHubRepositoryPage = PageFactory.initElements(webDriver, GitHubRepositoryPage.class);
         gitHubIndexPage.open();
-
 
     }
 
@@ -58,10 +60,24 @@ public class GitHubRepoTest {
         return gitHubProfilePage.repoList().contains(repo);
     }
 
+    public void brosweToTest() throws InterruptedException {
+        gitHubProfilePage.proceedToRepo("bdd-tools");
+        gitHubRepositoryPage.proceedToPath("concordion-webdriver", "src", "test", "java", "ua", "com", "mcgray", "bdd", "tools", "GitHubRepoTest.java");
+
+    }
+
+
+    public boolean searchFor(String text) {
+        return gitHubRepositoryPage.searchInFileContent(text);
+    }
+
     @After
     public void tearDown() {
         gitHubIndexPage.close();
     }
+
+    //That is a hidden treasure
+    // that the test should find
 
 
 }

@@ -1,14 +1,14 @@
 package ua.com.mcgray.bdd.tools.page;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA. User: orezchykov Date: 10.10.12 Time: 18:37 To
@@ -53,4 +53,15 @@ public class GitHubProfilePage extends Page {
 		}
 		return result;
 	}
+
+    public void proceedToRepo(String repoName) throws InterruptedException {
+        for (WebElement element : repositories.findElements(repositoriesLineLocator)) {
+            WebElement repoLink = element.findElement(By.tagName("h3")).findElement(By.tagName("a"));
+            if (repoLink.getText().contains(repoName)) {
+                repoLink.click();
+                shortWait();
+                return;
+            }
+        }
+    }
 }
