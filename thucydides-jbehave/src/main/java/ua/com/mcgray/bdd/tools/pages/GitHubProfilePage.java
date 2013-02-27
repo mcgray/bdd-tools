@@ -17,7 +17,7 @@ public class GitHubProfilePage extends PageObject {
 
     public static final String REPOSITORIES_LOCATOR = "div.repo-tab ul.repolist.js-repo-list";
 
-    public static final String REPOSITORIES_LINE_LOCATOR = "li.public.source";
+    public static final String REPOSITORIES_LINE_LOCATOR = "li.public.source h3 a";
 
     @FindBy(css = "ul.tabnav-tabs li a span.mini-icon.mini-icon-public-repo")
     private WebElement repoTab;

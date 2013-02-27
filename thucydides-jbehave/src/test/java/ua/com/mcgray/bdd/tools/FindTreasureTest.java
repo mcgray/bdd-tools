@@ -55,4 +55,7 @@ public class FindTreasureTest {
         repositorySteps.search_for(hiddenWords);
     }
 
+    //That is a hidden treasure
+    // that the test should find
+
 }
