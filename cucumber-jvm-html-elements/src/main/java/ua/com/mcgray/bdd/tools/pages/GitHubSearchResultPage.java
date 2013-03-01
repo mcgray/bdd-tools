@@ -24,7 +24,8 @@ public class GitHubSearchResultPage extends Page {
         return resultsList.get_list_text();
     }
 
-    public void proceed_to_profile() {
+    public void proceed_to_profile() throws InterruptedException {
+        shortWait();
         resultsList.click_on_profile();
 
     }

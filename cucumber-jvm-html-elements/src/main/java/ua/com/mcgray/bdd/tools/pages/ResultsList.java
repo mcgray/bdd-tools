@@ -1,11 +1,11 @@
 package ua.com.mcgray.bdd.tools.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Block;
 import ru.yandex.qatools.htmlelements.annotations.Name;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import ru.yandex.qatools.htmlelements.element.Link;
 
 /**
  * @author orezchykov
@@ -19,11 +19,15 @@ public class ResultsList extends HtmlElement {
     @FindBy(css = "ul.members-list")
     private WebElement usersList;
 
+    @Name("Profile Link")
+    @FindBy(css = "li h4 a")
+    private Link profileLink;
+
     public String get_list_text() {
         return usersList.getText();
     }
 
     public void click_on_profile() {
-        usersList.findElements(By.tagName("li")).get(0).findElements(By.tagName("a")).get(0).click();
+        profileLink.click();
     }
 }

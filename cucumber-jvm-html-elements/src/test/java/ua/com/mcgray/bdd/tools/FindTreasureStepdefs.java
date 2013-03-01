@@ -44,7 +44,7 @@ public class FindTreasureStepdefs {
     }
 
     @Given("^GitHub profile page$")
-    public void github_profile_page() {
+    public void github_profile_page() throws InterruptedException {
         gitHubSearchResultPage.proceed_to_profile();
     }
 
@@ -64,7 +64,7 @@ public class FindTreasureStepdefs {
     }
 
     @When("^browsing to test in (.+)$")
-    public void  browsing_to_test_in(String projectName) {
+    public void  browsing_to_test_in(String projectName) throws InterruptedException {
         gitHubRepositoryPage.browse_to_project_test(projectName);
     }
 
@@ -72,4 +72,7 @@ public class FindTreasureStepdefs {
     public void is_found_in_the_test_code(String text) {
         assertThat(gitHubRepositoryPage.get_file_content(), containsString(text));
     }
+
+    //That is a hidden treasure
+    // that the test should find
 }
