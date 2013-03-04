@@ -1,6 +1,9 @@
 package ua.com.mcgray.bdd.tools.page;
 
+import com.google.common.base.Predicate;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created with IntelliJ IDEA.
@@ -35,7 +38,13 @@ public class Page {
         webDriver.close();
     }
 
-    protected void shortWait() throws InterruptedException {
-       Thread.sleep(SHORT_WAIT_IN_MILISEC);
+    protected void waitForAjax() throws InterruptedException {
+        new WebDriverWait(getWebDriver(), SHORT_WAIT_IN_MILISEC).until(new Predicate<WebDriver>() {
+            @Override
+            public boolean apply(final WebDriver input) {
+                return (Boolean) ((JavascriptExecutor) input).executeScript(
+                        "return window.jQuery.active == 0");
+            }
+        });
     }
 }

@@ -19,13 +19,7 @@ public class GitHubProfilePage extends Page {
 	private WebElement repositories;
 	private By repositoriesLocator = By.cssSelector("div.repo-tab ul.repolist.js-repo-list");
 
-	// private By repositoriesLineLocator =
-	// By.xpath("li[@class='public source']");
-
 	private By repositoriesLineLocator = By.cssSelector("li.public.source");
-
-	// private By repositoriesLocator =
-	// By.xpath("//div[@class='repo-tab']/ul[@class='repolist js-repo-list']");
 
 	public GitHubProfilePage(WebDriver webDriver) {
 		super(webDriver);
@@ -34,8 +28,6 @@ public class GitHubProfilePage extends Page {
 	@FindBy(xpath = "//div[@class='avatared']/h1/em")
 	private WebElement profileName;
 
-	// @FindBy(xpath =
-	// "//ul[@class='tabnav-tabs']/li/a/span[@class='mini-icon mini-icon-public-repo']")
 	@FindBy(css = "ul.tabnav-tabs li a span.mini-icon.mini-icon-public-repo")
 	private WebElement repoTab;
 
@@ -59,7 +51,7 @@ public class GitHubProfilePage extends Page {
             WebElement repoLink = element.findElement(By.tagName("h3")).findElement(By.tagName("a"));
             if (repoLink.getText().contains(repoName)) {
                 repoLink.click();
-                shortWait();
+                waitForAjax();
                 return;
             }
         }

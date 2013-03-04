@@ -19,18 +19,16 @@ public class GitHubRepositoryPage extends Page {
 	}
 
 	private By contentLinksLocator = By.cssSelector("td.content a");
-//	private By contentLinksCellLocator = By.cssSelector("td.content");
 
 	private By fileContentLocator = By.xpath("//table[@class='lines']/tbody/tr/td[2]");
 
 	private void proceedTo(String resourceName) throws InterruptedException {
-        shortWait();
-//		new WebDriverWait(getWebDriver(), TIME_OUT_IN_SECONDS).until(ExpectedConditions.textToBePresentInElement(contentLinksCellLocator, resourceName));
         List<WebElement> contentLinks = getWebDriver().findElements(contentLinksLocator);
         for (WebElement contentLink : contentLinks) {
             if (contentLink.getText().contains(resourceName)) {
                 System.out.println(contentLink.getText());
                 contentLink.click();
+                waitForAjax();
                 return;
             }
         }
