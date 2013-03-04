@@ -11,9 +11,8 @@ import org.openqa.selenium.support.FindBy;
  */
 public class GitHubSearchResultPage extends PageObject {
 
-    public static final String SEARCH_RESULT_LOCATOR = "//ul[@class='members-list']/li[1]/h4/a";
-    @FindBy(xpath = "//ul[@class='menu']/li/a[text()=' Users']")
-//    @FindBy(css = "div.menu-container a:contains(' Users')")
+    public static final String SEARCH_RESULT_LOCATOR = "ul.members-list li:nth-child(1) h4 a";
+    @FindBy(xpath = "//a[text()=' Users']")
     private WebElement usersSearch;
 
     public GitHubSearchResultPage(final WebDriver driver, final int ajaxTimeout) {
