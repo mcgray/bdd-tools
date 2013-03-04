@@ -23,7 +23,7 @@ public class RepositorySteps extends ScenarioSteps {
     }
 
     @Step
-    public void browse_to_project(final String projectName) {
+    public void browse_to_project(final String projectName) throws InterruptedException {
         gitHubRepositoryPage.proceed_to(projectName);
 
     }

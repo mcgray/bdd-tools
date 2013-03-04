@@ -46,7 +46,7 @@ public class FindTreasureTest {
     }
 
     @When("browsing to test in '$projectName'")
-    public void whenBrowsingToTestIn(String projectName) {
+    public void whenBrowsingToTestIn(String projectName) throws InterruptedException {
         repositorySteps.browse_to_project(projectName);
     }
 

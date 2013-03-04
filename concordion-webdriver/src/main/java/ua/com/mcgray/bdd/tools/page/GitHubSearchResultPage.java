@@ -18,7 +18,7 @@ public class GitHubSearchResultPage extends Page {
 
     private WebElement searchResults;
 
-    @FindBy(xpath = "//ul[@class='menu']/li/a[text()=' Users']")
+    @FindBy(xpath = "//a[text()=' Users']")
     private WebElement usersSearch;
 
     public GitHubSearchResultPage(WebDriver webDriver) {

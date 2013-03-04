@@ -20,7 +20,7 @@ public class GitHubRepositoryPage extends Page {
 
 	private By contentLinksLocator = By.cssSelector("td.content a");
 
-	private By fileContentLocator = By.xpath("//table[@class='lines']/tbody/tr/td[2]");
+	private By fileContentLocator = By.cssSelector("table.lines tr > td:nth-child(2)");
 
 	private void proceedTo(String resourceName) throws InterruptedException {
         List<WebElement> contentLinks = getWebDriver().findElements(contentLinksLocator);

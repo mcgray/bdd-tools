@@ -17,9 +17,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GitHubProfilePage extends Page {
 
 	private WebElement repositories;
-	private By repositoriesLocator = By.cssSelector("div.repo-tab ul.repolist.js-repo-list");
+	private By repositoriesLocator = By.cssSelector("ul.repolist.js-repo-list");
 
-	private By repositoriesLineLocator = By.cssSelector("li.public.source");
+	private By repositoriesLineLocator = By.cssSelector("li.public.source h3 a");
 
 	public GitHubProfilePage(WebDriver webDriver) {
 		super(webDriver);
@@ -28,7 +28,7 @@ public class GitHubProfilePage extends Page {
 	@FindBy(xpath = "//div[@class='avatared']/h1/em")
 	private WebElement profileName;
 
-	@FindBy(css = "ul.tabnav-tabs li a span.mini-icon.mini-icon-public-repo")
+	@FindBy(css = "ul.tabnav-tabs span.mini-icon.mini-icon-public-repo")
 	private WebElement repoTab;
 
 	public boolean isOnProfilePage(String username) {
@@ -41,16 +41,15 @@ public class GitHubProfilePage extends Page {
 		repositories = new WebDriverWait(getWebDriver(), TIME_OUT_IN_SECONDS).until(ExpectedConditions.presenceOfElementLocated(repositoriesLocator));
 
 		for (WebElement element : repositories.findElements(repositoriesLineLocator)) {
-			result.add(element.findElement(By.tagName("h3")).findElement(By.tagName("a")).getText());
-		}
-		return result;
+            result.add(element.getText());
+        }
+        return result;
 	}
 
     public void proceedToRepo(String repoName) throws InterruptedException {
         for (WebElement element : repositories.findElements(repositoriesLineLocator)) {
-            WebElement repoLink = element.findElement(By.tagName("h3")).findElement(By.tagName("a"));
-            if (repoLink.getText().contains(repoName)) {
-                repoLink.click();
+            if (element.getText().contains(repoName)) {
+                element.click();
                 waitForAjax();
                 return;
             }

@@ -1,9 +1,12 @@
 package ua.com.mcgray.bdd.tools.pages;
 
+import com.google.common.base.Predicate;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author orezchykov
@@ -17,7 +20,9 @@ public class GitHubRepositoryPage extends PageObject {
 
     public static final String[] pathToTest = {"src", "test", "java", "ua", "com", "mcgray", "bdd", "tools", "FindTreasureTest.java"};
 
-	public GitHubRepositoryPage(final WebDriver driver, final int ajaxTimeout) {
+    public static final long SHORT_WAIT_IN_MILISEC = 2000l;
+
+    public GitHubRepositoryPage(final WebDriver driver, final int ajaxTimeout) {
 		super(driver, ajaxTimeout);
 	}
 
@@ -25,18 +30,18 @@ public class GitHubRepositoryPage extends PageObject {
 		super(driver);
 	}
 
-    public void proceed_to(String projectName) {
+    public void proceed_to(String projectName) throws InterruptedException {
         proceed_to_link(projectName);
         for (int i = 0; i < pathToTest.length; i++) {
             proceed_to_link(pathToTest[i]);
         }
     }
 
-    private void proceed_to_link(final String path) {
-        waitABit(2000l);
+    private void proceed_to_link(final String path) throws InterruptedException {
         for (WebElementFacade webElementFacade : findAll(By.cssSelector(CONTENT_LINKS_LOCATOR))) {
             if (webElementFacade.getText().contains(path)) {
                 webElementFacade.click();
+                waitForAjax();
                 return;
             }
         }
@@ -46,4 +51,14 @@ public class GitHubRepositoryPage extends PageObject {
 		waitForPresenceOf(FILE_CONTENT_LOCATOR);
 		return $(FILE_CONTENT_LOCATOR).getText();
 	}
+
+    protected void waitForAjax() throws InterruptedException {
+        new WebDriverWait(getDriver(), SHORT_WAIT_IN_MILISEC).until(new Predicate<WebDriver>() {
+            @Override
+            public boolean apply(final WebDriver input) {
+                return (Boolean) ((JavascriptExecutor) input).executeScript(
+                        "return window.jQuery.active == 0");
+            }
+        });
+    }
 }
