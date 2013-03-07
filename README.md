@@ -1,7 +1,5 @@
 bdd-tools
 =========
-* auto-gen TOC:
-{:toc}
 
 A playground for the Java [BDD](http://http://en.wikipedia.org/wiki/Behavior-driven_development) Tools and [Selenium Webdriver](http://http://docs.seleniumhq.org/projects/webdriver/) based frameworks.
 
