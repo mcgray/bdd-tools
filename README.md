@@ -1,5 +1,7 @@
 bdd-tools
 =========
+* auto-gen TOC:
+{:toc}
 
 A playground for the Java [BDD](http://http://en.wikipedia.org/wiki/Behavior-driven_development) Tools and [Selenium Webdriver](http://http://docs.seleniumhq.org/projects/webdriver/) based frameworks.
 
@@ -43,9 +45,18 @@ Or using your favorite _IDE_ (in this case you should set the `webdriver.chrome.
 
 Thucydides-JBehave
 ----------------------
-JBehave is well-known and widely used BDD implementation for Java which uses plain text scenario files and map them to Java classes using **@Given, @When, @Then** annotations.
+[JBehave](http://) is well-known and widely used BDD implementation for Java which uses plain text scenario files and map them to Java classes using **@Given, @When, @Then** annotations.
 
-Thucydides is an acceptance testing framework. 
+[Thucydides](http://) is an acceptance testing framework. 
+
+To start with using both frameworks I recommend to create a maven project from thucydides-jbehave archetype. It is updated quite frequently and will save you a lot of time setting up the project.
+`mvn atchetype:generate` - archetype number 191.
+
+To run test using _maven_:
+
+`mvn clean integration-test site`
+
+To run using IDE (in this case THucydides will not generate results becaue it uses maven site plugin)  - run the StoryRunner
 
 **To be continued**
 
