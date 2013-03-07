@@ -8,7 +8,7 @@ There are three maven projects using different BDD tools performing the similar 
 Test steps:
 
 
-  1. Find a user with a nickname mcgray on a using GitHub search
+ 1. Find a user with a nickname mcgray on a using GitHub search
  2. Proceed to the user profile page
  3. Search for the **bdd-tools** repository on the user public repository list
  4. Proceed to **bdd-tools** repository
