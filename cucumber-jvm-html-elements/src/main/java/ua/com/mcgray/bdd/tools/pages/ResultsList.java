@@ -20,7 +20,7 @@ public class ResultsList extends HtmlElement {
     private WebElement usersList;
 
     @Name("Profile Link")
-    @FindBy(css = "li h4 a")
+    @FindBy(css = "li:nth-child(1) h4 a")
     private Link profileLink;
 
     public String get_list_text() {

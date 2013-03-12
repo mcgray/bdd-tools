@@ -12,11 +12,11 @@ import ru.yandex.qatools.htmlelements.element.Link;
  */
 
 @Name("Search result menu")
-@Block(@FindBy(xpath = "//ul[@class='menu']"))
+@Block(@FindBy(css = "ul.menu"))
 public class MenuContainer extends HtmlElement {
 
 	@Name("Search by user tab")
-	@FindBy(xpath = "//li/a[text()=' Users']")
+	@FindBy(css = "li:nth-child(4) a")
 	private Link searchByUserLink;
 
 	public void switch_to_user_search_list() {
