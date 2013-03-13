@@ -16,11 +16,11 @@ import ru.yandex.qatools.htmlelements.element.Link;
 public class ResultsList extends HtmlElement {
 
     @Name("Users list")
-    @FindBy(css = "ul.members-list")
+    @FindBy(css = "div.user-list")
     private WebElement usersList;
 
     @Name("Profile Link")
-    @FindBy(css = "li:nth-child(1) h4 a")
+    @FindBy(css = "div.user-list div.user-list-item:nth-child(1) a.gravatar")
     private Link profileLink;
 
     public String get_list_text() {

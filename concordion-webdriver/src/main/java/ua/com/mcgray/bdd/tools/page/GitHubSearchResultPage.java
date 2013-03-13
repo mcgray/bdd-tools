@@ -27,7 +27,7 @@ public class GitHubSearchResultPage extends Page {
 
     public String usersFound() {
         usersSearch.click();
-        searchResults = new WebDriverWait(getWebDriver(), TIME_OUT_IN_SECONDS).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[@class='members-list']/li[1]/h4/a")));
+        searchResults = new WebDriverWait(getWebDriver(), TIME_OUT_IN_SECONDS).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='user-list-item'][1]/div[@class='user-list-info']/a")));
         return searchResults.getText();
     }
 

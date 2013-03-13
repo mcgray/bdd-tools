@@ -11,7 +11,8 @@ import org.openqa.selenium.support.FindBy;
  */
 public class GitHubSearchResultPage extends PageObject {
 
-    public static final String SEARCH_RESULT_LOCATOR = "ul.members-list li:nth-child(1) h4 a";
+    public static final String SEARCH_RESULT_AVATAR_LOCATOR = "div.user-list div.user-list-item:nth-child(1) a.gravatar";
+    public static final String SEARCH_RESULT_LOCATOR = "div.user-list div.user-list-item:nth-child(1)";
     @FindBy(xpath = "//a[text()=' Users']")
     private WebElement usersSearch;
 
@@ -25,11 +26,11 @@ public class GitHubSearchResultPage extends PageObject {
 
     public String check_results_for(final String name) {
         $(usersSearch).click();
-        waitForPresenceOf(SEARCH_RESULT_LOCATOR);
+        waitForPresenceOf(SEARCH_RESULT_AVATAR_LOCATOR);
         return $(SEARCH_RESULT_LOCATOR).getText();
     }
 
     public void proceed_to_profile(final String name) {
-        $(SEARCH_RESULT_LOCATOR).click();
+        $(SEARCH_RESULT_AVATAR_LOCATOR).click();
     }
 }
