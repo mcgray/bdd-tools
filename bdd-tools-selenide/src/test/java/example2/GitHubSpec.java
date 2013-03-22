@@ -1,6 +1,5 @@
 package example2;
 
-import com.codeborne.selenide.Selenide;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,8 +12,7 @@ public class GitHubSpec {
 
   @BeforeMethod
   public void openGitHub() {
-    open("http://github.com/search");
-    searchPage = Selenide.page(SearchPage.class);
+    searchPage = open("http://github.com/search", SearchPage.class);
   }
 
   @Test
