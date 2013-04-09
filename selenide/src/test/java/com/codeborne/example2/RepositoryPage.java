@@ -1,4 +1,4 @@
-package example2;
+package com.codeborne.example2;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
