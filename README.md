@@ -43,9 +43,9 @@ Or using your favorite _IDE_ (in this case you should set the `webdriver.chrome.
 
 Thucydides-JBehave
 ----------------------
-[JBehave](http://) is well-known and widely used BDD implementation for Java which uses plain text scenario files and map them to Java classes using **@Given, @When, @Then** annotations.
+[JBehave](http://jbehave.org/) is well-known and widely used BDD implementation for Java which uses plain text scenario files and map them to Java classes using **@Given, @When, @Then** annotations.
 
-[Thucydides](http://) is an acceptance testing framework. 
+[Thucydides](http://www.thucydides.info/) is an acceptance testing framework. 
 
 To start with using both frameworks I recommend to create a maven project from thucydides-jbehave archetype. It is updated quite frequently and will save you a lot of time setting up the project.
 `mvn archetype:generate` - archetype number 191.
@@ -60,8 +60,16 @@ To run using IDE (in this case Thucydides will not generate results because it u
 
 Cucumber-JVM-Html-Elements
 --------------------------
-Cucumber-JVM is a Cucumber implementation for Java. ( Cucumber is a canonical BDD tool designed for Ruby)
+[Cucumber-JVM](https://github.com/cucumber/cucumber-jvm) is a [Cucumber](http://cukes.info/) implementation for Java. ( Cucumber is a canonical BDD tool originally designed for Ruby)
 
-Html-Elements is a framework designed by Yandex and built to be used with Webdriver tests.
+[Html-Elements](https://github.com/yandex-qatools/htmlelements) is a framework designed by [Yandex](http://www.yandex.ru) and built to be used with Webdriver tests.
+
+**To be continued**
+
+Selenide
+------------
+[Selenide](https://github.com/codeborne/selenide) is a Webdriver based UI acceptance testing framework developed by [Codeborne](http://codeborne.com/). 
+
+The current example has no BDD tool yet. There are two examples currently. Both are TestNG tests one with and one without Page Objects.
 
 **To be continued**
