@@ -42,7 +42,7 @@ public class GitHubSpec {
       $(By.xpath("//td[contains(@class,'content')]//a[text()='" + path + "']")).click();
 //      $$(".tree-browser .content").findBy(text(path)).followLink();
     }
-    $(".lines").shouldHave(text("hidden treasure"));
+    $(".blob-line-code").shouldHave(text("hidden treasure"));
   }
 
 }

@@ -12,6 +12,6 @@ public class RepositoryPage {
   }
 
   public SelenideElement getSourceLines() {
-    return $(".lines");
+    return $(".blob-line-code");
   }
 }
