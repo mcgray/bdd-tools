@@ -28,7 +28,7 @@ public class GitHubProfilePage extends Page {
 	@FindBy(xpath = "//div[@class='avatared']/h1/em")
 	private WebElement profileName;
 
-	@FindBy(css = "ul.tabnav-tabs span.mini-icon.mini-icon-public-repo")
+	@FindBy(css = "ul.tabnav-tabs span.octicon-repo")
 	private WebElement repoTab;
 
 	public boolean isOnProfilePage(String username) {
