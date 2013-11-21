@@ -1,5 +1,6 @@
 package ua.com.mcgray.bdd.tools;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -71,6 +72,11 @@ public class FindTreasureStepdefs {
     @Then("^(.+) is found in the test code$")
     public void is_found_in_the_test_code(String text) {
         assertThat(gitHubRepositoryPage.get_file_content(), containsString(text));
+    }
+
+    @After
+    public void tearDown() {
+        webDriver.close();
     }
 
     //That is a hidden treasure

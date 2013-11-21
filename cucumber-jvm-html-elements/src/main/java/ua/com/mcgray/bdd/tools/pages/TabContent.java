@@ -25,6 +25,6 @@ public class TabContent extends HtmlElement {
     }
 
     public void proceed_to_repo() {
-        repoList.findElements(By.cssSelector("li:nth-child(3) h3 a")).get(0).click();
+        repoList.findElement(By.cssSelector("li a[href$='bdd-tools']")).click();
     }
 }
