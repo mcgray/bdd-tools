@@ -15,7 +15,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 public class NavTabs extends HtmlElement {
 
 	@Name("Repo tab")
-	@FindBy(css = "span.mini-icon-public-repo")
+	@FindBy(css = "span.octicon.octicon-repo")
 	private WebElement repoTab;
 
 	public void click_repo_tab() {

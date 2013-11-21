@@ -11,12 +11,12 @@ public class GitHubSearchPage extends Page {
 
 	public static final String GITHUB_SEARCH_URL = "http://github.com/search";
 
-    private SearchForm searchForm;
+	private SearchForm searchForm;
 
 	public GitHubSearchPage(final WebDriver webDriver) {
 		super(webDriver);
-        HtmlElementLoader.populatePageObject(this, webDriver);
-    }
+		HtmlElementLoader.populatePageObject(this, webDriver);
+	}
 
 	public void open() {
 		getWebDriver().get(GITHUB_SEARCH_URL);
@@ -26,6 +26,5 @@ public class GitHubSearchPage extends Page {
 	public void search_for(final String name) {
 		searchForm.search_for(name);
 	}
-
 
 }

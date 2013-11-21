@@ -59,7 +59,7 @@ public class SearchSteps extends ScenarioSteps {
     @Step
     public void repo_exists(final String repoName) {
         List<String> repositories = gitHubProfilePage.get_repositories();
-        assertThat((List) repositories, hasItem(containsString(repoName)));
+        assertThat(repositories, hasItem(containsString(repoName)));
 
     }
 

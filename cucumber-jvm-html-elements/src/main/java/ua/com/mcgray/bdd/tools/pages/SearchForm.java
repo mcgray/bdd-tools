@@ -12,7 +12,7 @@ import ru.yandex.qatools.htmlelements.element.TextInput;
  * @since 01.03.13
  */
 @Name("Search form")
-@Block(@FindBy(id = "search_form"))
+@Block(@FindBy(id = "code_search"))
 public class SearchForm extends HtmlElement {
     @Name("Search input")
     @FindBy(name = "q")

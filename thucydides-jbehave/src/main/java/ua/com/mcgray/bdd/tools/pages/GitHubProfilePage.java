@@ -19,7 +19,7 @@ public class GitHubProfilePage extends PageObject {
 
     public static final String REPOSITORIES_LINE_LOCATOR = "li.public.source h3 a";
 
-    @FindBy(css = "ul.tabnav-tabs span.mini-icon.mini-icon-public-repo")
+    @FindBy(css = "ul.tabnav-tabs span.octicon.octicon-repo")
     private WebElement repoTab;
 
     public GitHubProfilePage(final WebDriver driver, final int ajaxTimeout) {

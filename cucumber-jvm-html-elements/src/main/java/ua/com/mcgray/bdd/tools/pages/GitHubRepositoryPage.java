@@ -18,7 +18,7 @@ public class GitHubRepositoryPage extends Page {
 
     private By contentLinksLocator = By.cssSelector("td.content a");
 
-    private By fileContentLocator = By.xpath("//table[@class='lines']/tbody/tr/td[2]");
+    private By fileContentLocator = By.xpath("//td[@class='blob-line-code']/div/pre");
 
     public GitHubRepositoryPage(final WebDriver webDriver) {
         super(webDriver);

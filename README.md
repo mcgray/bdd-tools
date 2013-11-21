@@ -3,7 +3,7 @@ bdd-tools
 
 A playground for the Java [BDD](http://http://en.wikipedia.org/wiki/Behavior-driven_development) Tools and [Selenium Webdriver](http://http://docs.seleniumhq.org/projects/webdriver/) based frameworks.
 
-There are three maven projects using different BDD tools performing the similar UI test.
+There are some maven projects using different BDD tools performing the similar UI test.
 
 Test steps:
 

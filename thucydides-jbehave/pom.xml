@@ -11,12 +11,19 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.9.98</thucydides.version>
-        <thucydides.jbehave.version>0.9.98</thucydides.jbehave.version>
-        <webdriver.driver>firefox</webdriver.driver>
+        <thucydides.version>0.9.222</thucydides.version>
+        <thucydides.jbehave.version>0.9.222</thucydides.jbehave.version>
+        <webdriver.driver>chrome</webdriver.driver>
+        <webdriver.chrome.driver>/Users/orezchykov/projects/chromedriver</webdriver.chrome.driver>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>2.37.1</version>
+        </dependency>
         <dependency>
             <groupId>net.thucydides</groupId>
             <artifactId>thucydides-core</artifactId>
@@ -68,6 +75,9 @@
                 <version>2.13</version>
                 <configuration>
                     <skip>true</skip>
+                    <systemPropertyVariables>
+                        <webdriver.driver>${webdriver.driver}</webdriver.driver>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

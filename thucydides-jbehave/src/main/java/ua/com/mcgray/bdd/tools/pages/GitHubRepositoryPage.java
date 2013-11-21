@@ -16,7 +16,7 @@ public class GitHubRepositoryPage extends PageObject {
 
 	public static final String CONTENT_LINKS_LOCATOR = "td.content a";
 
-	public static final String FILE_CONTENT_LOCATOR = "table.lines tr > td:nth-child(2)";
+	public static final String FILE_CONTENT_LOCATOR = "//td[@class='blob-line-code']/div/pre";
 
     public static final String[] pathToTest = {"src", "test", "java", "ua", "com", "mcgray", "bdd", "tools", "FindTreasureTest.java"};
 
