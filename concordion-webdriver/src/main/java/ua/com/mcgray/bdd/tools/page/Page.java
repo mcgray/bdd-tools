@@ -1,6 +1,5 @@
 package ua.com.mcgray.bdd.tools.page;
 
-import com.google.common.base.Predicate;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -39,12 +38,7 @@ public class Page {
     }
 
     protected void waitForAjax() throws InterruptedException {
-        new WebDriverWait(getWebDriver(), SHORT_WAIT_IN_MILISEC).until(new Predicate<WebDriver>() {
-            @Override
-            public boolean apply(final WebDriver input) {
-                return (Boolean) ((JavascriptExecutor) input).executeScript(
-                        "return window.jQuery.active == 0");
-            }
-        });
+        new WebDriverWait(getWebDriver(), SHORT_WAIT_IN_MILISEC).until((WebDriver input) -> (Boolean) ((JavascriptExecutor) input).executeScript(
+                "return window.jQuery.active == 0"));
     }
 }

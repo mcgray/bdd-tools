@@ -35,9 +35,9 @@ public class GitHubRepositoryPage extends Page {
     }
 
     public void proceedToPath(String... path) throws InterruptedException {
-		for (int i = 0; i < path.length; i++) {
-			proceedTo(path[i]);
-		}
+        for (final String pathElement : path) {
+            proceedTo(pathElement);
+        }
 	}
 
 	public boolean searchInFileContent(String text) {

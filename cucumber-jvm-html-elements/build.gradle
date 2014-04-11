@@ -1,0 +1,38 @@
+configure(allprojects) {
+
+    apply plugin: 'java'
+
+    group = "ua.com.mcgray"
+    version = "1.0-SNAPSHOT"
+
+    ext.htmlelementsVersion = "1.11"
+    ext.cucumberVersion = "1.1.6"
+
+    project.sourceCompatibility = 1.8
+    project.targetCompatibility = 1.8
+
+
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        systemProperty "webdriver.chrome.driver", "/Users/orezchykov/projects/chromedriver"
+    }
+
+    dependencies {
+
+        compile "ru.yandex.qatools.htmlelements:htmlelements-java:${htmlelementsVersion}"
+        compile "ru.yandex.qatools.htmlelements:htmlelements-matchers:${htmlelementsVersion}"
+        compile "info.cukes:cucumber-core:${cucumberVersion}"
+        testCompile "info.cukes:cucumber-java:${cucumberVersion}"
+        testCompile "info.cukes:cucumber-junit:${cucumberVersion}"
+        testCompile "junit:junit:4.11"
+
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}

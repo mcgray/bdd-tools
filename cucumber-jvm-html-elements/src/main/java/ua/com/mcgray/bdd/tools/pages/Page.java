@@ -1,6 +1,5 @@
 package ua.com.mcgray.bdd.tools.pages;
 
-import com.google.common.base.Predicate;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,12 +24,7 @@ public class Page {
     }
 
     public void shortWait() throws InterruptedException {
-        new WebDriverWait(getWebDriver(), AJAX_WAIT).until(new Predicate<WebDriver>() {
-            @Override
-            public boolean apply(final WebDriver input) {
-                return (Boolean) ((JavascriptExecutor) input).executeScript(
-                        "return window.jQuery.active == 0");
-            }
-        });
+        new WebDriverWait(getWebDriver(), AJAX_WAIT).until((WebDriver input) -> (Boolean) ((JavascriptExecutor) input).executeScript(
+                "return window.jQuery.active == 0"));
     }
 }

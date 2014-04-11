@@ -2,6 +2,7 @@ package ua.com.mcgray.bdd.tools.pages;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -31,12 +32,10 @@ public class GitHubProfilePage extends PageObject {
     }
 
     public List<String> get_repositories() {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         repoTab.click();
         waitForPresenceOf(REPOSITORIES_LOCATOR);
-        for (WebElementFacade webElementFacade : $(REPOSITORIES_LOCATOR).thenFindAll(REPOSITORIES_LINE_LOCATOR)) {
-            result.add(webElementFacade.getText());
-        }
+        result.addAll($(REPOSITORIES_LOCATOR).thenFindAll(REPOSITORIES_LINE_LOCATOR).stream().map(WebElementFacade::getText).collect(Collectors.toList()));
         return result;
 
     }

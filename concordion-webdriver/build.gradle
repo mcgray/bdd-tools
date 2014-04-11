@@ -1,0 +1,33 @@
+configure(allprojects) {
+
+    apply plugin: 'java'
+
+    group = "ua.com.mcgray"
+    version = "1.0-SNAPSHOT"
+
+    project.sourceCompatibility = 1.8
+    project.targetCompatibility = 1.8
+
+
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        systemProperty "webdriver.chrome.driver", "/Users/orezchykov/projects/chromedriver"
+        systemProperty "concordion.output.dir", "build/concordion"
+    }
+
+    dependencies {
+
+        compile "org.seleniumhq.selenium:selenium-java:2.40.0"
+        testCompile "org.concordion:concordion:1.4.2"
+        testCompile "junit:junit:4.11"
+
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}

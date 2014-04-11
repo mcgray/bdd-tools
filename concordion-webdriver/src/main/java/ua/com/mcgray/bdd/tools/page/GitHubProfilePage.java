@@ -1,7 +1,7 @@
 package ua.com.mcgray.bdd.tools.page;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,18 +32,14 @@ public class GitHubProfilePage extends Page {
 	private WebElement repoTab;
 
 	public boolean isOnProfilePage(String username) {
-		return profileName.equals(username);
+		return profileName.getText().equals(username);
 	}
 
 	public List<String> repoList() {
 		repoTab.click();
-		List<String> result = new ArrayList<String>();
 		repositories = new WebDriverWait(getWebDriver(), TIME_OUT_IN_SECONDS).until(ExpectedConditions.presenceOfElementLocated(repositoriesLocator));
 
-		for (WebElement element : repositories.findElements(repositoriesLineLocator)) {
-            result.add(element.getText());
-        }
-        return result;
+        return repositories.findElements(repositoriesLineLocator).stream().map(WebElement::getText).collect(Collectors.toList());
 	}
 
     public void proceedToRepo(String repoName) throws InterruptedException {
