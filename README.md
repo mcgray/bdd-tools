@@ -39,6 +39,10 @@ You can run the test using _maven_:
 
 `mvn clean test`
 
+Or using _Gradle_ (no installation needed):
+
+`./gradlew clean test`
+
 Or using your favorite _IDE_ (in this case you should set the `webdriver.chrome.driver` the location of your Chrome Driver and `concordion.output.dir` if you want to specify the place where to put test result)
 
 Thucydides-JBehave
@@ -54,6 +58,8 @@ To run test using _maven_:
 
 `mvn clean integration-test site`
 
+(Only _maven_ build for this project because of the _thucydides-maven-plugin_)
+
 To run using IDE (in this case Thucydides will not generate results because it uses maven site plugin)  - run the StoryRunner
 
 **To be continued**
@@ -63,6 +69,8 @@ Cucumber-JVM-Html-Elements
 [Cucumber-JVM](https://github.com/cucumber/cucumber-jvm) is a [Cucumber](http://cukes.info/) implementation for Java. ( Cucumber is a canonical BDD tool originally designed for Ruby)
 
 [Html-Elements](https://github.com/yandex-qatools/htmlelements) is a framework designed by [Yandex](http://www.yandex.ru) and built to be used with Webdriver tests.
+
+Both _maven_ and _Gradle_ builds available.
 
 **To be continued**
 
